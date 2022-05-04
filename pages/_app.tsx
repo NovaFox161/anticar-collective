@@ -1,8 +1,12 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import 'tailwindcss/tailwind.css'
+import {injectStyle} from "react-toastify/dist/inject-style";
+import type {AppProps} from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+export default function MyApp({Component, pageProps}: AppProps) {
+
+    // Inject the toastify styles
+    if (typeof document !== 'undefined') injectStyle();
+
+    return <Component {...pageProps} />
 }
 
-export default MyApp
